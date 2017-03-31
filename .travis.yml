@@ -9,7 +9,7 @@ env:
   - ARCH=i586
 script:
   - brew install $ARCH-elf-binutils
-  - brew install $ARCH-elf-gcc
+  - travis_wait 30 brew install $ARCH-elf-gcc
   - brew install $ARCH-elf-gdb
 branches:
   only:
