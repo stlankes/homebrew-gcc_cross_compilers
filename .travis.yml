@@ -8,7 +8,9 @@ env:
   - ARCH=arm
   - ARCH=i586
 script:
-  - sh test.sh
+  - brew install $ARCH-elf-binutils
+  - brew install $ARCH-elf-gcc
+  - brew install $ARCH-elf-gdb
 branches:
   only:
     - master
