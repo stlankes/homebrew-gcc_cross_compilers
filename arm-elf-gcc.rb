@@ -2,22 +2,23 @@ require 'formula'
 
 class ArmElfGcc < Formula
   homepage 'http://gcc.gnu.org'
-  url "http://mirror.tochlab.net/pub/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
-  sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
+  url "http://mirror.tochlab.net/pub/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+  sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
 
   depends_on 'gmp'
   depends_on 'libmpc'
   depends_on 'mpfr'
+  depends_on 'isl'
   depends_on 'arm-elf-binutils'
 
   def install
     binutils = Formulary.factory 'arm-elf-binutils'
 
-    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-6'
-    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-6'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-6'
-    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-6'
+    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-8'
+    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-8'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-8'
+    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-8'
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
     mkdir 'build' do
