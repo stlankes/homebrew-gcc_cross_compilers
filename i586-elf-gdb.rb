@@ -2,17 +2,17 @@ require 'formula'
 
 class I586ElfGdb < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz'
-  sha256 '4607680b973d3ec92c30ad029f1b7dbde3876869e6b3a117d8a7e90081113186'
+  url 'http://ftp.gnu.org/gnu/gdb/gdb-8.2.tar.xz'
+  sha256 'c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39'
 
   depends_on 'i586-elf-binutils'
   depends_on 'i586-elf-gcc'
 
   def install
-    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-6'
-    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-6'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-6'
-    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-6'
+    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-8'
+    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-8'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-8'
+    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-8'
 
     mkdir 'build' do
       system '../configure', '--target=i586-elf', "--prefix=#{prefix}", "--disable-werror"
