@@ -2,18 +2,18 @@ require 'formula'
 
 class ArmElfBinutils < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.gz'
-  sha256 'cd717966fc761d840d451dbd58d44e1e5b92949d2073d75b73fccb476d772fcf'
+  url 'http://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.gz'
+  sha256 '9b0d97b3d30df184d302bced12f976aa1e5fbf4b0be696cdebc6cca30411a46e'
 
   depends_on 'gcc' => :build
   def install
-    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-6'
-    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-6'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-6'
-    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-6'
+    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-8'
+    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-8'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-8'
+    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-8'
 
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=x86_64-elf','--disable-werror',
+      system '../configure', '--disable-nls', '--target=arm-elf-eabi','--disable-werror',
                              '--enable-gold=yes',
                              "--prefix=#{prefix}"
       system 'make all'
