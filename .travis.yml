@@ -1,6 +1,7 @@
 os: osx
 language: objective-c
 before_install:
+  - brew update
   - brew tap djphoenix/gcc_cross_compilers
 env:
   - ARCH=x86_64
